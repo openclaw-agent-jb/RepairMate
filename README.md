@@ -1,8 +1,11 @@
 # RepairMate
 
-**A hands-on technical repair assistant powered by Gemini Live API.**
+**A hands-free repair assistant powered by Ray-Ban Meta AI Glasses and Gemini Live API.**
 
-RepairMate is an iOS app that provides real-time, voice-guided repair instructions using the Gemini Live API's bidirectional streaming capabilities (audio + vision). Stream POV video from your camera while receiving step-by-step guidance, safety checks, and answers to interruptible questions like _"Which bolt first?"_ or _"Is this safe?"_
+[![Ray-Ban Meta](https://img.shields.io/badge/Ray--Ban-Meta%20AI%20Glasses-000000?style=for-the-badge&logo=meta&logoColor=white)](https://www.ray-ban.com/usa/ray-ban-meta-smart-glasses)
+[![Gemini Live](https://img.shields.io/badge/Gemini-Live%20API-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/gemini-api/docs/live)
+
+RepairMate is an iOS app that pairs with **Ray-Ban Meta AI Glasses** to deliver real-time, voice-guided repair instructions using the Gemini Live API's bidirectional streaming capabilities (audio + vision). Stream true hands-free POV video directly from your glasses while receiving step-by-step guidance, safety checks, and answers to interruptible questions like _"Which bolt first?"_ or _"Is this safe?"_
 
 ---
 
@@ -10,7 +13,7 @@ RepairMate is an iOS app that provides real-time, voice-guided repair instructio
 
 **The Problem:** You can't consult manuals or watch videos while your hands are busy fixing things.
 
-**The Solution:** RepairMate streams your camera feed to Gemini Live, which analyzes what you're seeing and provides voice-guided instructions through your headphones. The app includes pre-loaded repair procedures with tools, safety warnings, and visual cues, creating a hands-free repair assistant.
+**The Solution:** RepairMate streams POV video from your **Ray-Ban Meta AI Glasses** to Gemini Live, which analyzes what you're seeing and provides voice-guided instructions through your headphones. The app includes pre-loaded repair procedures with tools, safety warnings, and visual cues — creating a truly hands-free repair assistant that sees exactly what you see.
 
 > **No Meta AI Glasses?** RepairMate also supports your iPhone camera as a fallback. Tap **"Stream on iPhone"** on the home or connected screen to start a session without glasses — you still get full Gemini Live voice guidance.
 >

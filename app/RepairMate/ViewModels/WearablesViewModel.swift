@@ -1,0 +1,134 @@
+/*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+//
+// WearablesViewModel.swift
+//
+// Primary view model for the RepairMate app that manages DAT SDK integration.
+// Demonstrates how to listen to device availability changes using the DAT SDK's
+// device stream functionality and handle permission requests.
+//
+
+import MWDATCore
+import SwiftUI
+
+@MainActor
+class WearablesViewModel: ObservableObject {
+  @Published var devices: [DeviceIdentifier]
+  @Published var registrationState: RegistrationState
+  @Published var showGettingStartedSheet: Bool = false
+  @Published var showError: Bool = false
+  @Published var errorMessage: String = ""
+  #if targetEnvironment(simulator)
+  @Published var simulatorBypassActive: Bool = false
+  #endif
+
+  private var registrationTask: Task<Void, Never>?
+  private var deviceStreamTask: Task<Void, Never>?
+  private let wearables: WearablesInterface
+  private var compatibilityListenerTokens: [DeviceIdentifier: AnyListenerToken] = [:]
+
+  init(wearables: WearablesInterface) {
+    self.wearables = wearables
+    self.devices = wearables.devices
+    self.registrationState = wearables.registrationState
+
+    registrationTask = Task {
+      for await registrationState in wearables.registrationStateStream() {
+        let previousState = self.registrationState
+        self.registrationState = registrationState
+
+        // Detect silent failure: SDK reset from connecting back to unregistered without completing
+        if previousState == .registering && registrationState == .available {
+          NSLog("[RepairMate] Registration failed: state reset from .registering to .available")
+          showError("Could not connect to Meta AI app. Make sure the Meta AI app is installed, Developer Mode is enabled, and Bluetooth is permitted.")
+        }
+
+        if self.showGettingStartedSheet == false && registrationState == .registered && previousState == .registering {
+          self.showGettingStartedSheet = true
+        }
+        if registrationState == .registered {
+          await setupDeviceStream()
+        }
+      }
+    }
+  }
+
+  deinit {
+    registrationTask?.cancel()
+    deviceStreamTask?.cancel()
+  }
+
+  private func setupDeviceStream() async {
+    if let task = deviceStreamTask, !task.isCancelled {
+      task.cancel()
+    }
+
+    deviceStreamTask = Task {
+      for await devices in wearables.devicesStream() {
+        self.devices = devices
+        // Monitor compatibility for each device
+        monitorDeviceCompatibility(devices: devices)
+      }
+    }
+  }
+
+  private func monitorDeviceCompatibility(devices: [DeviceIdentifier]) {
+    // Remove listeners for devices that are no longer present
+    let deviceSet = Set(devices)
+    compatibilityListenerTokens = compatibilityListenerTokens.filter { deviceSet.contains($0.key) }
+
+    // Add listeners for new devices
+    for deviceId in devices {
+      guard compatibilityListenerTokens[deviceId] == nil else { continue }
+      guard let device = wearables.deviceForIdentifier(deviceId) else { continue }
+
+      // Capture device name before the closure to avoid Sendable issues
+      let deviceName = device.nameOrId()
+      let token = device.addCompatibilityListener { [weak self] compatibility in
+        guard let self else { return }
+        if compatibility == .deviceUpdateRequired {
+          Task { @MainActor in
+            self.showError("Device '\(deviceName)' requires an update to work with this app")
+          }
+        }
+      }
+      compatibilityListenerTokens[deviceId] = token
+    }
+  }
+
+  func connectGlasses() async {
+    guard registrationState != .registering else { return }
+    do {
+      try await wearables.startRegistration()
+    } catch let error as RegistrationError {
+      NSLog("[RepairMate] startRegistration threw RegistrationError: \(error) (\(error.rawValue))")
+      showError("Registration error: \(error.description)")
+    } catch {
+      NSLog("[RepairMate] startRegistration threw unknown error: \(error)")
+      showError(error.localizedDescription)
+    }
+  }
+
+  func disconnectGlasses() async {
+    do {
+      try await wearables.startUnregistration()
+    } catch {
+      showError(error.description)
+    }
+  }
+
+  func showError(_ error: String) {
+    errorMessage = error
+    showError = true
+  }
+
+  func dismissError() {
+    showError = false
+  }
+}

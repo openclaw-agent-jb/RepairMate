@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "4B565A00-34A0-4B27-AA73-008B0FDE231B",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:RepairMate.xcodeproj",
+      "identifier" : "8A8A8A8A8A8A8A8A8A8A8A8A",
+      "name" : "RepairMate"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:RepairMate.xcodeproj",
+        "identifier" : "E699CC942E8150670052C240",
+        "name" : "RepairMateTests"
+      }
+    }
+  ],
+  "version" : 1
+}

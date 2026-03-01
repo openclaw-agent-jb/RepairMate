@@ -1,0 +1,763 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		373C95372F3B19F900B2FDF0 /* IPhoneCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373C95352F3B19F900B2FDF0 /* IPhoneCameraManager.swift */; };
+		378E06B32F489A7A00919799 /* RepairMateSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E06B12F489A7A00919799 /* RepairMateSessionManager.swift */; };
+		378E06B42F489A7A00919799 /* SafetyClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E06B22F489A7A00919799 /* SafetyClassifier.swift */; };
+		378E06B62F489ABD00919799 /* DomainSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E06B52F489ABD00919799 /* DomainSelectorView.swift */; };
+		378E06BC2F4A8E6900919799 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 378E06BB2F4A8E6900919799 /* GoogleService-Info.plist */; };
+		378E06BF2F4A8F4400919799 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 378E06BE2F4A8F4400919799 /* FirebaseFirestore */; };
+		378E06C12F4A901A00919799 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E06C02F4A901A00919799 /* FirestoreService.swift */; };
+		378E06C52F4AB2F800919799 /* RepairMateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E06C42F4AB2F800919799 /* RepairMateTools.swift */; };
+		378E06C92F4AB36D00919799 /* SafetyAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E06C82F4AB36D00919799 /* SafetyAnalysisService.swift */; };
+		379E06B72F489ABD00919799 /* ProcedureSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379E06B62F489ABD00919799 /* ProcedureSelectorView.swift */; };
+		37B40B782F4FD12E00DB44B0 /* TranscriptLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B40B772F4FD12E00DB44B0 /* TranscriptLogView.swift */; };
+		37B40B992F4FF3D100DB44B0 /* TranscriptStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B40B982F4FF3D100DB44B0 /* TranscriptStore.swift */; };
+		37B40B9B2F4FF41100DB44B0 /* SavedTranscriptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B40B9A2F4FF41100DB44B0 /* SavedTranscriptsView.swift */; };
+		8F8F00782E8ACB4600A4BDAF /* WearablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F00772E8ACB4500A4BDAF /* WearablesViewModel.swift */; };
+		8FD96B7F2E6F0A9800F56AB1 /* RepairMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD96B792E6F0A9800F56AB1 /* RepairMateApp.swift */; };
+		8FD96B812E6F0A9800F56AB1 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD96B722E6F0A9800F56AB1 /* HomeScreenView.swift */; };
+		8FD96B872E6F0A9800F56AB1 /* StreamSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD96B6F2E6F0A9800F56AB1 /* StreamSessionViewModel.swift */; };
+		8FD96B882E6F0A9800F56AB1 /* StreamSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD96B752E6F0A9800F56AB1 /* StreamSessionView.swift */; };
+		8FD96B8A2E6F0A9800F56AB1 /* PhotoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD96B742E6F0A9800F56AB1 /* PhotoPreviewView.swift */; };
+		8FD96B8D2E6F0A9800F56AB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD96B772E6F0A9800F56AB1 /* Assets.xcassets */; };
+		8FD96B8E2E6F0A9800F56AB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD96B7C2E6F0A9800F56AB1 /* LaunchScreen.storyboard */; };
+		8FD96B952E6F0F7D00F56AB1 /* MWDATCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8FD96B942E6F0F7D00F56AB1 /* MWDATCore */; };
+		8FD96B952E6F0F7D00F56AB2 /* MWDATCamera in Frameworks */ = {isa = PBXBuildFile; productRef = 8FD96B942E6F0F7D00F56AB2 /* MWDATCamera */; };
+		8FFD5FF52E8422580035E446 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD5FF22E8422580035E446 /* CircleButton.swift */; };
+		8FFD5FF62E8422580035E446 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD5FF32E8422580035E446 /* CustomButton.swift */; };
+		8FFD60352E8434070035E446 /* StatusText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD60332E8434070035E446 /* StatusText.swift */; };
+		8FFD603B2E84342C0035E446 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD60392E84342C0035E446 /* TimeUtils.swift */; };
+		8FFD60542E849D0D0035E446 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD60532E849D0D0035E446 /* RegistrationView.swift */; };
+		8FFD60602E84A2F70035E446 /* MainAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD605F2E84A2F70035E446 /* MainAppView.swift */; };
+		B1B2C3D4E5F607182930BB01 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F607182930AA01 /* KeychainService.swift */; };
+		B1B2C3D4E5F607182930BB02 /* GeminiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F607182930AA02 /* GeminiConfig.swift */; };
+		B1B2C3D4E5F607182930BB03 /* GeminiLiveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F607182930AA03 /* GeminiLiveService.swift */; };
+		B1B2C3D4E5F607182930BB04 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F607182930AA04 /* AudioManager.swift */; };
+		B1B2C3D4E5F607182930BB05 /* ToolCallModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F607182930AA05 /* ToolCallModels.swift */; };
+		B1B2C3D4E5F607182930BB06 /* OpenClawBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F607182930AA06 /* OpenClawBridge.swift */; };
+		B1B2C3D4E5F607182930BB07 /* ToolCallRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F607182930AA07 /* ToolCallRouter.swift */; };
+		B1B2C3D4E5F607182930BB08 /* GeminiSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F607182930AA08 /* GeminiSessionViewModel.swift */; };
+		B1B2C3D4E5F607182930BB09 /* GeminiOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F607182930AA09 /* GeminiOverlayView.swift */; };
+		B1B2C3D4E5F607182930BB0A /* DeveloperConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F607182930AA0A /* DeveloperConfigView.swift */; };
+		E6A188482EB918740097D0E1 /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A188472EB918740097D0E1 /* StreamView.swift */; };
+		E6DA451E2E79A63100E3F688 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DA45172E79A63100E3F688 /* CardView.swift */; };
+		E6DA451F2E79A63100E3F689 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DA45182E79A63100E3F689 /* ToastView.swift */; };
+		E6FD3BCE2EB4D53A00E7FE5D /* NonStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FD3BCD2EB4D53A00E7FE5D /* NonStreamView.swift */; };
+		F1A1B2C3D4E5F60718293A4E /* PixelBufferUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60718293A4E /* PixelBufferUtils.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E699CC992E8150670052C240 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCCCCCCCCCCCCCCCCCCCCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A8A8A8A8A8A8A8A8A8A8A8A;
+			remoteInfo = RepairMate;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8FD96B932E6F0C6E00F56AB1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		373C95352F3B19F900B2FDF0 /* IPhoneCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPhoneCameraManager.swift; sourceTree = "<group>"; };
+		378E06B12F489A7A00919799 /* RepairMateSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairMateSessionManager.swift; sourceTree = "<group>"; };
+		378E06B22F489A7A00919799 /* SafetyClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyClassifier.swift; sourceTree = "<group>"; };
+		378E06B52F489ABD00919799 /* DomainSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainSelectorView.swift; sourceTree = "<group>"; };
+		378E06BB2F4A8E6900919799 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		378E06C02F4A901A00919799 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		378E06C42F4AB2F800919799 /* RepairMateTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairMateTools.swift; sourceTree = "<group>"; };
+		378E06C82F4AB36D00919799 /* SafetyAnalysisService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyAnalysisService.swift; sourceTree = "<group>"; };
+		379E06B62F489ABD00919799 /* ProcedureSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcedureSelectorView.swift; sourceTree = "<group>"; };
+		37B40B772F4FD12E00DB44B0 /* TranscriptLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptLogView.swift; sourceTree = "<group>"; };
+		37B40B982F4FF3D100DB44B0 /* TranscriptStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptStore.swift; sourceTree = "<group>"; };
+		37B40B9A2F4FF41100DB44B0 /* SavedTranscriptsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTranscriptsView.swift; sourceTree = "<group>"; };
+		3A3A3A3A3A3A3A3A3A3A3A3A /* RepairMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepairMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F8F00772E8ACB4500A4BDAF /* WearablesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearablesViewModel.swift; sourceTree = "<group>"; };
+		8FD96B6F2E6F0A9800F56AB1 /* StreamSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamSessionViewModel.swift; sourceTree = "<group>"; };
+		8FD96B722E6F0A9800F56AB1 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
+		8FD96B742E6F0A9800F56AB1 /* PhotoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewView.swift; sourceTree = "<group>"; };
+		8FD96B752E6F0A9800F56AB1 /* StreamSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamSessionView.swift; sourceTree = "<group>"; };
+		8FD96B772E6F0A9800F56AB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8FD96B782E6F0A9800F56AB1 /* RepairMate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RepairMate.entitlements; sourceTree = "<group>"; };
+		8FD96B792E6F0A9800F56AB1 /* RepairMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairMateApp.swift; sourceTree = "<group>"; };
+		8FD96B7B2E6F0A9800F56AB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FD96B7C2E6F0A9800F56AB1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8FFD5FF22E8422580035E446 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		8FFD5FF32E8422580035E446 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		8FFD60332E8434070035E446 /* StatusText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusText.swift; sourceTree = "<group>"; };
+		8FFD60392E84342C0035E446 /* TimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
+		8FFD60532E849D0D0035E446 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		8FFD605F2E84A2F70035E446 /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F607182930AA01 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F607182930AA02 /* GeminiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiConfig.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F607182930AA03 /* GeminiLiveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiLiveService.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F607182930AA04 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F607182930AA05 /* ToolCallModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolCallModels.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F607182930AA06 /* OpenClawBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenClawBridge.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F607182930AA07 /* ToolCallRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolCallRouter.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F607182930AA08 /* GeminiSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiSessionViewModel.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F607182930AA09 /* GeminiOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiOverlayView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F607182930AA0A /* DeveloperConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperConfigView.swift; sourceTree = "<group>"; };
+		C1C1C1C1C1C1C1C1C1C1C1C1 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		E699CC952E8150670052C240 /* RepairMateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RepairMateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6A188472EB918740097D0E1 /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
+		E6DA45172E79A63100E3F688 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		E6DA45182E79A63100E3F689 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		E6FD3BCD2EB4D53A00E7FE5D /* NonStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonStreamView.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F60718293A4E /* PixelBufferUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelBufferUtils.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E699CC962E8150670052C240 /* RepairMateTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = RepairMateTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A4A4A4A4A4A4A4A4A4A4A4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FD96B952E6F0F7D00F56AB1 /* MWDATCore in Frameworks */,
+				8FD96B952E6F0F7D00F56AB2 /* MWDATCamera in Frameworks */,
+				378E06BF2F4A8F4400919799 /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		373C95362F3B19F900B2FDF0 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				373C95352F3B19F900B2FDF0 /* IPhoneCameraManager.swift */,
+			);
+			path = iPhone;
+			sourceTree = "<group>";
+		};
+		5A5A5A5A5A5A5A5A5A5A5A5A = {
+			isa = PBXGroup;
+			children = (
+				8FD96B7D2E6F0A9800F56AB1 /* RepairMate */,
+				8F2A14F12DDBCEB900D4E5F2 /* Frameworks */,
+				7A7A7A7A7A7A7A7A7A7A7A7A /* Products */,
+				E699CC962E8150670052C240 /* RepairMateTests */,
+				8FD96B782E6F0A9800F56AB1 /* RepairMate.entitlements */,
+				C1C1C1C1C1C1C1C1C1C1C1C1 /* Config.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		7A7A7A7A7A7A7A7A7A7A7A7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A3A3A3A3A3A3A3A3A3A3A3A /* RepairMate.app */,
+				E699CC952E8150670052C240 /* RepairMateTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8F2A14F12DDBCEB900D4E5F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8FD96B702E6F0A9800F56AB1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F607182930AA08 /* GeminiSessionViewModel.swift */,
+				8FD96B6F2E6F0A9800F56AB1 /* StreamSessionViewModel.swift */,
+				8F8F00772E8ACB4500A4BDAF /* WearablesViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8FD96B762E6F0A9800F56AB1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				37B40B9A2F4FF41100DB44B0 /* SavedTranscriptsView.swift */,
+				378E06B52F489ABD00919799 /* DomainSelectorView.swift */,
+				379E06B62F489ABD00919799 /* ProcedureSelectorView.swift */,
+				8FFD5FF42E8422580035E446 /* Components */,
+				A1B2C3D4E5F607182930AA0A /* DeveloperConfigView.swift */,
+				8FD96B722E6F0A9800F56AB1 /* HomeScreenView.swift */,
+				8FFD605F2E84A2F70035E446 /* MainAppView.swift */,
+				8FD96B742E6F0A9800F56AB1 /* PhotoPreviewView.swift */,
+				8FFD60532E849D0D0035E446 /* RegistrationView.swift */,
+				8FD96B752E6F0A9800F56AB1 /* StreamSessionView.swift */,
+				E6A188472EB918740097D0E1 /* StreamView.swift */,
+				E6FD3BCD2EB4D53A00E7FE5D /* NonStreamView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8FD96B7D2E6F0A9800F56AB1 /* RepairMate */ = {
+			isa = PBXGroup;
+			children = (
+				378E06BB2F4A8E6900919799 /* GoogleService-Info.plist */,
+				373C95362F3B19F900B2FDF0 /* iPhone */,
+				8FD96B702E6F0A9800F56AB1 /* ViewModels */,
+				F2A1B2C3D4E5F60718293A4B /* Services */,
+				8FD96B762E6F0A9800F56AB1 /* Views */,
+				8FFD5FF82E8422B60035E446 /* Utils */,
+				8FD96B772E6F0A9800F56AB1 /* Assets.xcassets */,
+				8FD96B792E6F0A9800F56AB1 /* RepairMateApp.swift */,
+				8FD96B7B2E6F0A9800F56AB1 /* Info.plist */,
+				8FD96B7C2E6F0A9800F56AB1 /* LaunchScreen.storyboard */,
+			);
+			path = RepairMate;
+			sourceTree = "<group>";
+		};
+		8FFD5FF42E8422580035E446 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				37B40B772F4FD12E00DB44B0 /* TranscriptLogView.swift */,
+				A1B2C3D4E5F607182930AA09 /* GeminiOverlayView.swift */,
+				8FFD60332E8434070035E446 /* StatusText.swift */,
+				8FFD5FF22E8422580035E446 /* CircleButton.swift */,
+				8FFD5FF32E8422580035E446 /* CustomButton.swift */,
+				E6DA45172E79A63100E3F688 /* CardView.swift */,
+				E6DA45182E79A63100E3F689 /* ToastView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8FFD5FF82E8422B60035E446 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F0A1B2C3D4E5F60718293A4E /* PixelBufferUtils.swift */,
+				8FFD60392E84342C0035E446 /* TimeUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C1D2E3F4A5B607182930CC01 /* Gemini */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F607182930AA01 /* KeychainService.swift */,
+				A1B2C3D4E5F607182930AA02 /* GeminiConfig.swift */,
+				A1B2C3D4E5F607182930AA03 /* GeminiLiveService.swift */,
+				A1B2C3D4E5F607182930AA04 /* AudioManager.swift */,
+			);
+			path = Gemini;
+			sourceTree = "<group>";
+		};
+		C1D2E3F4A5B607182930CC02 /* OpenClaw */ = {
+			isa = PBXGroup;
+			children = (
+				378E06C42F4AB2F800919799 /* RepairMateTools.swift */,
+				A1B2C3D4E5F607182930AA05 /* ToolCallModels.swift */,
+				A1B2C3D4E5F607182930AA06 /* OpenClawBridge.swift */,
+				A1B2C3D4E5F607182930AA07 /* ToolCallRouter.swift */,
+			);
+			path = OpenClaw;
+			sourceTree = "<group>";
+		};
+		F2A1B2C3D4E5F60718293A4B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				37B40B982F4FF3D100DB44B0 /* TranscriptStore.swift */,
+				378E06C82F4AB36D00919799 /* SafetyAnalysisService.swift */,
+				378E06C02F4A901A00919799 /* FirestoreService.swift */,
+				378E06B12F489A7A00919799 /* RepairMateSessionManager.swift */,
+				378E06B22F489A7A00919799 /* SafetyClassifier.swift */,
+				C1D2E3F4A5B607182930CC01 /* Gemini */,
+				C1D2E3F4A5B607182930CC02 /* OpenClaw */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8A8A8A8A8A8A8A8A8A8A8A8A /* RepairMate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A9A9A9A9A9A9A9A9A9A9A9A /* Build configuration list for PBXNativeTarget "RepairMate" */;
+			buildPhases = (
+				AAAAAAAAAAAAAAAAAAAAAA /* Sources */,
+				4A4A4A4A4A4A4A4A4A4A4A4A /* Frameworks */,
+				BBBBBBBBBBBBBBBBBBBBBB /* Resources */,
+				8FD96B932E6F0C6E00F56AB1 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RepairMate;
+			productName = RepairMate;
+			productReference = 3A3A3A3A3A3A3A3A3A3A3A3A /* RepairMate.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E699CC942E8150670052C240 /* RepairMateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E699CC9D2E8150670052C240 /* Build configuration list for PBXNativeTarget "RepairMateTests" */;
+			buildPhases = (
+				E699CC912E8150670052C240 /* Sources */,
+				E699CC932E8150670052C240 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E699CC9A2E8150670052C240 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E699CC962E8150670052C240 /* RepairMateTests */,
+			);
+			name = RepairMateTests;
+			packageProductDependencies = (
+			);
+			productName = RepairMateTests;
+			productReference = E699CC952E8150670052C240 /* RepairMateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CCCCCCCCCCCCCCCCCCCCCC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					8A8A8A8A8A8A8A8A8A8A8A8A = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					E699CC942E8150670052C240 = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = 8A8A8A8A8A8A8A8A8A8A8A8A;
+					};
+				};
+			};
+			buildConfigurationList = DDDDDDDDDDDDDDDDDDDDDD /* Build configuration list for PBXProject "RepairMate" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5A5A5A5A5A5A5A5A5A5A5A5A;
+			packageReferences = (
+				95F7F3332DEF0D91006D1C1A /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */,
+				378E06BD2F4A8F4400919799 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 7A7A7A7A7A7A7A7A7A7A7A7A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8A8A8A8A8A8A8A8A8A8A8A8A /* RepairMate */,
+				E699CC942E8150670052C240 /* RepairMateTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BBBBBBBBBBBBBBBBBBBBBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FD96B8D2E6F0A9800F56AB1 /* Assets.xcassets in Resources */,
+				8FD96B8E2E6F0A9800F56AB1 /* LaunchScreen.storyboard in Resources */,
+				378E06BC2F4A8E6900919799 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E699CC932E8150670052C240 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAAAAAAAAAAAAAAAAAAAAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37B40B9B2F4FF41100DB44B0 /* SavedTranscriptsView.swift in Sources */,
+				8FD96B7F2E6F0A9800F56AB1 /* RepairMateApp.swift in Sources */,
+				8FD96B812E6F0A9800F56AB1 /* HomeScreenView.swift in Sources */,
+				37B40B992F4FF3D100DB44B0 /* TranscriptStore.swift in Sources */,
+				8FFD60542E849D0D0035E446 /* RegistrationView.swift in Sources */,
+				8FFD60352E8434070035E446 /* StatusText.swift in Sources */,
+				F1A1B2C3D4E5F60718293A4E /* PixelBufferUtils.swift in Sources */,
+				8FFD603B2E84342C0035E446 /* TimeUtils.swift in Sources */,
+				E6DA451E2E79A63100E3F688 /* CardView.swift in Sources */,
+				E6DA451F2E79A63100E3F689 /* ToastView.swift in Sources */,
+				378E06B62F489ABD00919799 /* DomainSelectorView.swift in Sources */,
+				379E06B72F489ABD00919799 /* ProcedureSelectorView.swift in Sources */,
+				8FD96B872E6F0A9800F56AB1 /* StreamSessionViewModel.swift in Sources */,
+				8FD96B882E6F0A9800F56AB1 /* StreamSessionView.swift in Sources */,
+				8FFD60602E84A2F70035E446 /* MainAppView.swift in Sources */,
+				378E06C92F4AB36D00919799 /* SafetyAnalysisService.swift in Sources */,
+				8FD96B8A2E6F0A9800F56AB1 /* PhotoPreviewView.swift in Sources */,
+				378E06C12F4A901A00919799 /* FirestoreService.swift in Sources */,
+				8F8F00782E8ACB4600A4BDAF /* WearablesViewModel.swift in Sources */,
+				E6A188482EB918740097D0E1 /* StreamView.swift in Sources */,
+				8FFD5FF52E8422580035E446 /* CircleButton.swift in Sources */,
+				8FFD5FF62E8422580035E446 /* CustomButton.swift in Sources */,
+				E6FD3BCE2EB4D53A00E7FE5D /* NonStreamView.swift in Sources */,
+				373C95372F3B19F900B2FDF0 /* IPhoneCameraManager.swift in Sources */,
+				B1B2C3D4E5F607182930BB01 /* KeychainService.swift in Sources */,
+				B1B2C3D4E5F607182930BB02 /* GeminiConfig.swift in Sources */,
+				B1B2C3D4E5F607182930BB03 /* GeminiLiveService.swift in Sources */,
+				378E06B32F489A7A00919799 /* RepairMateSessionManager.swift in Sources */,
+				378E06B42F489A7A00919799 /* SafetyClassifier.swift in Sources */,
+				B1B2C3D4E5F607182930BB04 /* AudioManager.swift in Sources */,
+				B1B2C3D4E5F607182930BB05 /* ToolCallModels.swift in Sources */,
+				B1B2C3D4E5F607182930BB06 /* OpenClawBridge.swift in Sources */,
+				B1B2C3D4E5F607182930BB07 /* ToolCallRouter.swift in Sources */,
+				B1B2C3D4E5F607182930BB08 /* GeminiSessionViewModel.swift in Sources */,
+				B1B2C3D4E5F607182930BB09 /* GeminiOverlayView.swift in Sources */,
+				37B40B782F4FD12E00DB44B0 /* TranscriptLogView.swift in Sources */,
+				378E06C52F4AB2F800919799 /* RepairMateTools.swift in Sources */,
+				B1B2C3D4E5F607182930BB0A /* DeveloperConfigView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E699CC912E8150670052C240 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E699CC9A2E8150670052C240 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A8A8A8A8A8A8A8A8A8A8A8A /* RepairMate */;
+			targetProxy = E699CC992E8150670052C240 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0B0B0B0B0B0B0B0B0B0B0B0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1C1C1C1C1C1C1C1C1C1C1C1 /* Config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RepairMate.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = L7S836PG99;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				INFOPLIST_FILE = RepairMate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marlsantos.RepairMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0C0C0C0C0C0C0C0C0C0C0C0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1C1C1C1C1C1C1C1C1C1C1C1 /* Config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RepairMate.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = L7S836PG99;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = RepairMate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marlsantos.RepairMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E699CC9B2E8150670052C240 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L7S836PG99;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marlsantos.RepairMateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RepairMate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RepairMate";
+			};
+			name = Debug;
+		};
+		E699CC9C2E8150670052C240 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L7S836PG99;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marlsantos.RepairMateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RepairMate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RepairMate";
+			};
+			name = Release;
+		};
+		EEEEEEEEEEEEEEEEEEEEEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FFFFFFFFFFFFFFFFFFFFFFFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9A9A9A9A9A9A9A9A9A9A9A9A /* Build configuration list for PBXNativeTarget "RepairMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B0B0B0B0B0B0B0B0B0B0B0B /* Debug */,
+				0C0C0C0C0C0C0C0C0C0C0C0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDDDDDDDDDDDDDDDDDDDDD /* Build configuration list for PBXProject "RepairMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEEEEEEEEEEEEEEEEEEEEE /* Debug */,
+				FFFFFFFFFFFFFFFFFFFFFFFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E699CC9D2E8150670052C240 /* Build configuration list for PBXNativeTarget "RepairMateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E699CC9B2E8150670052C240 /* Debug */,
+				E699CC9C2E8150670052C240 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		378E06BD2F4A8F4400919799 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.9.0;
+			};
+		};
+		95F7F3332DEF0D91006D1C1A /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/meta-wearables-dat-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 0.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		378E06BE2F4A8F4400919799 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 378E06BD2F4A8F4400919799 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		8FD96B942E6F0F7D00F56AB1 /* MWDATCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95F7F3332DEF0D91006D1C1A /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
+			productName = MWDATCore;
+		};
+		8FD96B942E6F0F7D00F56AB2 /* MWDATCamera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95F7F3332DEF0D91006D1C1A /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
+			productName = MWDATCamera;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = CCCCCCCCCCCCCCCCCCCCCC /* Project object */;
+}

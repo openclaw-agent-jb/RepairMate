@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Editors
+.vscode
+.claude
+.agents
+
+# iOS / Xcode
+Config.xcconfig
+.env
+*.xcuserstate
+*xcuserdata/
+
+# Firebase / Google credentials — never commit
+RepairMate/GoogleService-Info.plist
+**/GoogleService-Info.plist
+*.serviceAccountKey.json
+
+# Firebase debug logs
+firestore-debug.log
+database-debug.log
+ui-debug.log
+
+# Node
+node_modules
+package-lock.json

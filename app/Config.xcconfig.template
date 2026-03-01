@@ -1,0 +1,7 @@
+// Meta Wearables (DAT) App ID and Client Token
+// Get these from https://wearables.developer.meta.com
+META_WEARABLES_APP_ID = YOUR_APP_ID_HERE
+META_WEARABLES_CLIENT_TOKEN = AR|YOUR_APP_ID_HERE|YOUR_CLIENT_TOKEN_HERE
+
+// Safety Analysis Interval (seconds)
+SAFETY_ANALYSIS_INTERVAL = 10.0

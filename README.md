@@ -144,11 +144,19 @@ See `backend/README.md` for complete Firebase setup instructions.
 
 ### 3. Configure API Keys
 
-Create `app/Config.xcconfig` with your Gemini API key:
+1. Copy the template and create your own config:
+   ```bash
+   cp app/Config.xcconfig.template app/Config.xcconfig
+   ```
 
-```
-GEMINI_API_KEY=your_api_key_here
-```
+2. Edit `app/Config.xcconfig` with your actual credentials:
+   - **Meta Wearables**: Get `APP_ID` and `CLIENT_TOKEN` from [Meta Wearables Developer Center](https://wearables.developer.meta.com)
+   - **Gemini API**: Add your key from [Google AI Studio](https://aistudio.google.com/apikey)
+
+   ```
+   META_WEARABLES_APP_ID = your_app_id
+   META_WEARABLES_CLIENT_TOKEN = AR|your_app_id|your_token
+   ```
 
 ---
 

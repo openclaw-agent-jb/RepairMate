@@ -3,36 +3,42 @@
 ## High-Level System Architecture
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'fontFamily': 'sans-serif', 'edgeLabelBackground':'#ffffff'}}}%%
 flowchart TB
-    subgraph "User Side"
-        GL[Ray-Ban Meta Glasses]
-        IP[iPhone Camera fallback]
-        MIC[User Voice Input]
-        EAR[Glasses Speaker / Headphones]
-        IOS[iOS App — RepairMate]
+    classDef userNode fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:#fff,rx:8px,ry:8px
+    classDef agentNode fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#fff,rx:8px,ry:8px
+    classDef cloudNode fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff,rx:8px,ry:8px
+    classDef dbNode fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#fff,rx:8px,ry:8px
+
+    subgraph UserSide ["📱 User Side"]
+        GL["👓 Ray-Ban Meta Glasses"]:::userNode
+        IP["📱 iPhone Camera fallback"]:::userNode
+        MIC["🎙️ User Voice Input"]:::userNode
+        EAR["🎧 Glasses Speaker / Headphones"]:::userNode
+        IOS["📲 iOS App — RepairMate"]:::userNode
     end
 
-    subgraph "OpenClaw Agent Gateway"
-        OC[OpenClaw AI Agent<br/>HTTPS REST — Bearer Auth<br/>x-openclaw-session-key]
+    subgraph Gateway ["🛡️ OpenClaw Agent Gateway"]
+        OC["🤖 OpenClaw AI Agent<br/>HTTPS REST — Bearer Auth<br/>x-openclaw-session-key"]:::agentNode
     end
 
-    subgraph "Google Cloud"
-        subgraph "Gemini Live API"
-            GEM[gemini-2.5-flash-native-audio<br/>Bidirectional WebSocket Stream]
+    subgraph GCloud ["☁️ Google Cloud"]
+        subgraph GeminiAPI ["🧠 Gemini Live API"]
+            GEM["⚡ gemini-2.5-flash-native-audio<br/>Bidirectional WebSocket Stream"]:::cloudNode
         end
-        subgraph "Firebase"
-            FS[(Firestore<br/>Repair Procedures)]
+        subgraph FirebaseDB ["🔥 Firebase"]
+            FS[("🗄️ Firestore<br/>Repair Procedures")]:::dbNode
         end
     end
 
     GL -->|DAT SDK stream| IOS
     IP -->|AVFoundation stream| IOS
     MIC -->|Audio Input 16 kHz| IOS
-    IOS -->|WSS bidi stream| GEM
+    IOS <-->|WSS bidi stream| GEM
     GEM -->|Audio Output 24 kHz| IOS
     IOS --> EAR
 
-    GEM -->|Tool call: lookup_torque_spec<br/>lookup_wiring_diagram<br/>check_part_compatibility| IOS
+    GEM -->|Tool calls: lookup_torque_spec, etc.| IOS
     IOS -->|HTTPS POST /v1/chat/completions| OC
     OC -->|Result| IOS
     IOS -->|Tool result| GEM
@@ -45,13 +51,16 @@ flowchart TB
 ## Data Flow: Streaming a Repair Session
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'fontFamily': 'sans-serif', 'actorBkg': '#3b82f6', 'actorTextColor': '#ffffff', 'actorBorder': '#2563eb', 'signalColor': '#333333', 'signalTextColor': '#333333', 'noteBkgColor': '#fef08a', 'noteBorderColor': '#eab308'}}}%%
 sequenceDiagram
-    participant U as User
-    participant G as Glasses / iPhone
-    participant I as iOS App
-    participant GL as Gemini Live
-    participant OC as OpenClaw Agent
-    participant FS as Firestore
+    autonumber
+    participant U as 👤 User
+    participant G as 👓 Glasses / iPhone
+    participant MIC as 🎙️ Microphone
+    participant I as 📲 iOS App
+    participant GL as 🧠 Gemini Live
+    participant OC as 🤖 OpenClaw Agent
+    participant FS as 🔥 Firestore
 
     U->>I: Select Domain (e.g. Automotive)
     U->>I: Select Procedure (e.g. Alternator Replacement)
@@ -74,7 +83,7 @@ sequenceDiagram
     GL-->>I: "That bolt should be torqued to 18 newton-metres."
     I-->>U: (voice)
 
-    Note over I: Safety frame analysis runs every 5s<br/>Alerts user to detected hazards
+    Note over I,GL: 🛡️ Safety frame analysis runs every 5s<br/>Alerts user to detected hazards
 ```
 
 ---
@@ -97,21 +106,27 @@ sequenceDiagram
 ## Deployment Architecture
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'fontFamily': 'sans-serif', 'edgeLabelBackground':'#ffffff'}}}%%
 flowchart LR
-    subgraph "On-Device"
-        IOS[iOS App]
-        GL[Ray-Ban Glasses<br/>via DAT SDK BT]
-        IP[iPhone Camera<br/>AVFoundation]
-        TS[(TranscriptStore<br/>Local)]
+    classDef deviceNode fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:#fff,rx:8px,ry:8px
+    classDef externalNode fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#fff,rx:8px,ry:8px
+    classDef cloudNode fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff,rx:8px,ry:8px
+    classDef dbNode fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#fff,rx:8px,ry:8px
+
+    subgraph OnDevice ["📱 On-Device"]
+        IOS["📲 iOS App"]:::deviceNode
+        GL["👓 Ray-Ban Glasses<br/>via DAT SDK BT"]:::deviceNode
+        IP["📷 iPhone Camera<br/>AVFoundation"]:::deviceNode
+        TS[("💾 TranscriptStore<br/>Local")]:::dbNode
     end
 
-    subgraph "External — Configurable"
-        OC[OpenClaw Agent Gateway<br/>HTTPS + Bearer Token]
+    subgraph External ["🔌 External — Configurable"]
+        OC["🤖 OpenClaw Agent Gateway<br/>HTTPS + Bearer Token"]:::externalNode
     end
 
-    subgraph "Google Cloud"
-        GEM[Gemini Live API<br/>generativelanguage.googleapis.com<br/>WSS Bidi Stream]
-        FS[(Firestore<br/>Repair Procedures)]
+    subgraph GCloud ["☁️ Google Cloud"]
+        GEM["🧠 Gemini Live API<br/>generativelanguage.googleapis.com<br/>WSS Bidi Stream"]:::cloudNode
+        FS[("🔥 Firestore<br/>Repair Procedures")]:::dbNode
     end
 
     GL -->|Bluetooth RTMP| IOS

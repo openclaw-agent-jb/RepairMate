@@ -1,0 +1,13 @@
+{
+  "name": "repairmate-import",
+  "version": "1.0.0",
+  "description": "RAG seed script — imports repair procedures into Firestore",
+  "main": "import-procedures.js",
+  "scripts": {
+    "import": "node import-procedures.js",
+    "import:emulator": "node import-procedures.js --emulator"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.0.0"
+  }
+}

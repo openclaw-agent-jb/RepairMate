@@ -1,0 +1,33 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Procedures ────────────────────────────────────────────────────────
+    // Read-only reference library — seeded by the import script.
+    // No client writes allowed.
+    match /procedures/{procedureId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // ── Workflows ─────────────────────────────────────────────────────────
+    // Authenticated users may only read/write their own workflow documents.
+    // The document's userId field must match the caller's UID.
+    match /workflows/{sessionId} {
+      allow read, write: if request.auth != null
+        && (resource == null || resource.data.userId == request.auth.uid)
+        && (!('userId' in request.resource.data)
+            || request.resource.data.userId == request.auth.uid);
+    }
+
+    // ── Safety Logs ───────────────────────────────────────────────────────
+    // Authenticated users may append their own safety events.
+    // No client reads — logs are reviewed server-side only.
+    match /safetyLogs/{logId} {
+      allow create: if request.auth != null
+        && request.resource.data.userId == request.auth.uid;
+      allow read, update, delete: if false;
+    }
+  }
+}

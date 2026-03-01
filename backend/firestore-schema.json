@@ -1,0 +1,74 @@
+{
+  "collections": {
+    "procedures": {
+      "description": "Read-only repair procedure library — seeded via import-procedures.js",
+      "documentSchema": {
+        "id": "string",
+        "name": "string",
+        "domain": "string (auto|electronics|appliances|hvac)",
+        "difficulty": "string (beginner|intermediate|advanced)",
+        "estimatedTime": "string",
+        "tools": ["string"],
+        "safetyWarnings": ["string"],
+        "steps": [
+          {
+            "number": "number",
+            "title": "string",
+            "action": "string",
+            "visualCues": "string",
+            "safetyWarning": "string (optional)",
+            "torqueSpec": "string (optional)",
+            "commonMistakes": ["string"]
+          }
+        ],
+        "createdAt": "timestamp",
+        "updatedAt": "timestamp"
+      }
+    },
+    "workflows": {
+      "description": "Per-session workflow state — written by the iOS app during a repair session",
+      "documentSchema": {
+        "sessionId": "string",
+        "userId": "string",
+        "domain": "string",
+        "procedure": "string",
+        "currentStep": "number",
+        "totalSteps": "number",
+        "safetyAcknowledged": ["string"],
+        "notes": ["string"],
+        "startTime": "timestamp",
+        "lastUpdated": "timestamp",
+        "status": "string (active|paused|completed)"
+      }
+    },
+    "safetyLogs": {
+      "description": "Append-only safety events (WARNING / STOP level only)",
+      "documentSchema": {
+        "sessionId": "string",
+        "userId": "string",
+        "timestamp": "timestamp",
+        "level": "string (WARNING|STOP)",
+        "reason": "string",
+        "action": "string"
+      }
+    }
+  },
+  "indexes": [
+    {
+      "collectionGroup": "procedures",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "domain", "order": "ASCENDING" },
+        { "fieldPath": "difficulty", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "workflows",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "userId", "order": "ASCENDING" },
+        { "fieldPath": "lastUpdated", "order": "DESCENDING" }
+      ]
+    }
+  ]
+}

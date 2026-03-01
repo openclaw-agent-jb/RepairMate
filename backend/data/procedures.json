@@ -1,0 +1,679 @@
+[
+  {
+    "id": "auto-alternator-honda-civic-2015",
+    "name": "Alternator Replacement — 2015 Honda Civic",
+    "domain": "auto",
+    "difficulty": "intermediate",
+    "estimatedTime": "45–60 minutes",
+    "tools": ["10mm socket", "12mm socket", "14mm socket", "ratchet", "extensions", "penetrating oil"],
+    "safetyWarnings": [
+      "Disconnect negative battery terminal before starting",
+      "Engine may be hot — wait 30 minutes after use",
+      "Use jack stands if working underneath"
+    ],
+    "steps": [
+      {
+        "number": 1,
+        "title": "Safety Preparation",
+        "action": "Disconnect the negative battery terminal",
+        "visualCues": "Black cable, minus sign, 10mm nut on battery",
+        "safetyWarning": "Prevents short circuits when removing the alternator",
+        "commonMistakes": ["Forgetting to disconnect", "Touching both terminals simultaneously"]
+      },
+      {
+        "number": 2,
+        "title": "Access",
+        "action": "Remove the engine cover if present",
+        "visualCues": "Plastic clips on the sides — pull up firmly",
+        "commonMistakes": ["Breaking clips by pulling in the wrong direction"]
+      },
+      {
+        "number": 3,
+        "title": "Electrical Disconnect",
+        "action": "Unplug the alternator harness connector",
+        "visualCues": "Push the tab on top, then pull straight out",
+        "commonMistakes": ["Breaking the tab — use a flathead if stuck"]
+      },
+      {
+        "number": 4,
+        "title": "Remove Belt",
+        "action": "Loosen the tensioner and slip the belt off the alternator pulley",
+        "visualCues": "14mm bolt on the tensioner arm — rotate clockwise to release",
+        "safetyWarning": "Engine may be hot — wear gloves",
+        "commonMistakes": ["Forgetting to photograph belt routing before removal"]
+      },
+      {
+        "number": 5,
+        "title": "Mounting Bolts",
+        "action": "Remove the top and bottom 12mm mounting bolts",
+        "visualCues": "Top bolt near windshield, bottom bolt near radiator",
+        "torqueSpec": "47 Nm for both bolts on reassembly",
+        "commonMistakes": ["Dropping bolts into the engine bay — use a magnetic tray"]
+      },
+      {
+        "number": 6,
+        "title": "Remove Alternator",
+        "action": "Work the alternator out of its bracket",
+        "visualCues": "May need to tilt — watch for coolant lines nearby"
+      },
+      {
+        "number": 7,
+        "title": "Installation",
+        "action": "Reverse steps 6 through 1",
+        "safetyWarning": "Torque bolts to spec — do not overtighten",
+        "commonMistakes": ["Overtightening bolts and stripping threads"]
+      }
+    ]
+  },
+  {
+    "id": "auto-brake-pads-generic",
+    "name": "Brake Pad Replacement — Generic Front Disc",
+    "domain": "auto",
+    "difficulty": "beginner",
+    "estimatedTime": "30–45 minutes per axle",
+    "tools": ["lug wrench", "Jack and jack stands", "12mm socket", "C-clamp or caliper wind-back tool", "brake cleaner", "nitrile gloves"],
+    "safetyWarnings": [
+      "Never work under a car supported only by a floor jack — use jack stands",
+      "Brake dust is hazardous — do not blow with compressed air",
+      "Pump brake pedal before driving to seat the pads"
+    ],
+    "steps": [
+      {
+        "number": 1,
+        "title": "Loosen Lug Nuts",
+        "action": "Break lug nuts loose while the wheel is still on the ground",
+        "visualCues": "Turn counterclockwise — do not remove yet"
+      },
+      {
+        "number": 2,
+        "title": "Jack Up and Support",
+        "action": "Raise the vehicle and place jack stands under the frame",
+        "safetyWarning": "Never skip the jack stands",
+        "commonMistakes": ["Placing jack stands on body panels instead of frame rails"]
+      },
+      {
+        "number": 3,
+        "title": "Remove Wheel",
+        "action": "Remove lug nuts and pull wheel off",
+        "visualCues": "Set wheel flat as a backup in case jack stands fail"
+      },
+      {
+        "number": 4,
+        "title": "Remove Caliper",
+        "action": "Remove the two caliper slide bolts (usually 12mm) and slide the caliper off",
+        "visualCues": "Bolts are on the back side of the caliper",
+        "safetyWarning": "Do not let the caliper hang by the brake hose — hang it with a wire hook",
+        "commonMistakes": ["Letting the caliper stretch or kink the brake line"]
+      },
+      {
+        "number": 5,
+        "title": "Remove Old Pads",
+        "action": "Slide old pads out of the caliper bracket",
+        "visualCues": "Note orientation — outer pad has the wear indicator clip"
+      },
+      {
+        "number": 6,
+        "title": "Compress Piston",
+        "action": "Use a C-clamp to press the caliper piston back in",
+        "visualCues": "Use the old pad as a buffer between clamp and piston",
+        "safetyWarning": "Watch brake fluid reservoir — may overflow; remove some if needed"
+      },
+      {
+        "number": 7,
+        "title": "Install New Pads",
+        "action": "Slide new pads into the caliper bracket, apply caliper grease to tabs",
+        "visualCues": "Anti-squeal shims face outward",
+        "commonMistakes": ["Forgetting to lubricate slide pins — causes uneven wear"]
+      },
+      {
+        "number": 8,
+        "title": "Reassemble and Test",
+        "action": "Reinstall caliper, torque slide bolts, mount wheel",
+        "torqueSpec": "Caliper bolts: 25–35 Nm (check vehicle-specific spec)",
+        "safetyWarning": "Pump brake pedal 10 times before moving the car"
+      }
+    ]
+  },
+  {
+    "id": "electronics-capacitor-replacement",
+    "name": "Electrolytic Capacitor Replacement",
+    "domain": "electronics",
+    "difficulty": "intermediate",
+    "estimatedTime": "15–30 minutes per capacitor",
+    "tools": ["soldering iron (25–40W)", "solder", "desoldering pump or braid", "multimeter", "ESD wrist strap", "flux pen"],
+    "safetyWarnings": [
+      "Discharge capacitors before touching — measure with multimeter first",
+      "Electrolytic capacitors are polarised — match stripe (negative) to PCB marking",
+      "Keep iron tip temperature under 380°C to avoid PCB damage",
+      "Work in a ventilated area — solder fumes are harmful"
+    ],
+    "steps": [
+      {
+        "number": 1,
+        "title": "Power Off and Discharge",
+        "action": "Unplug the device and measure capacitor voltage with a multimeter",
+        "visualCues": "Probe across cap legs — wait for reading to drop below 1V",
+        "safetyWarning": "Large caps in amplifiers can hold lethal charge for hours"
+      },
+      {
+        "number": 2,
+        "title": "ESD Setup",
+        "action": "Attach ESD wrist strap to your wrist and clip to ground",
+        "visualCues": "Metal chassis screw or bare copper are good ground points"
+      },
+      {
+        "number": 3,
+        "title": "Identify Polarity",
+        "action": "Note the negative stripe on the capacitor and the PCB half-moon marking",
+        "visualCues": "Light-coloured stripe = negative lead; half-moon on PCB = negative hole",
+        "commonMistakes": ["Reversing polarity — capacitor will fail or explode under power"]
+      },
+      {
+        "number": 4,
+        "title": "Desolder Old Capacitor",
+        "action": "Heat each leg and remove solder with desoldering pump",
+        "visualCues": "Apply fresh solder first if old solder won't flow — it helps",
+        "commonMistakes": ["Overheating the pad — lift PCB trace"]
+      },
+      {
+        "number": 5,
+        "title": "Clean Holes",
+        "action": "Clear holes with desoldering braid, confirm clean with a pin",
+        "visualCues": "Holes should be fully open and shiny"
+      },
+      {
+        "number": 6,
+        "title": "Insert New Capacitor",
+        "action": "Insert new cap with correct polarity, bend legs slightly to hold",
+        "visualCues": "Stripe faces the half-moon PCB marking"
+      },
+      {
+        "number": 7,
+        "title": "Solder and Trim",
+        "action": "Solder both legs, trim excess lead with flush cutters",
+        "visualCues": "Good joint is shiny and volcano-shaped, not dull or balled",
+        "commonMistakes": ["Cold solder joints — reheat and add a tiny amount of flux"]
+      },
+      {
+        "number": 8,
+        "title": "Verify",
+        "action": "Power on and check voltage across capacitor terminals with multimeter",
+        "visualCues": "Should match the capacitor's rated working voltage for the circuit"
+      }
+    ]
+  },
+  {
+    "id": "appliances-washing-machine-pump-filter",
+    "name": "Washing Machine Pump Filter Cleaning",
+    "domain": "appliances",
+    "difficulty": "beginner",
+    "estimatedTime": "15–20 minutes",
+    "tools": ["Phillips head screwdriver", "flathead screwdriver", "bucket or shallow tray", "old towels"],
+    "safetyWarnings": [
+      "Unplug machine from the wall before any work — water and electricity are fatal",
+      "Shut off water supply valves behind the machine",
+      "Have towels ready — filter housing holds up to 1 litre of water"
+    ],
+    "steps": [
+      {
+        "number": 1,
+        "title": "Unplug and Isolate",
+        "action": "Unplug the washing machine from the power outlet",
+        "visualCues": "Reach behind — the outlet is usually above the machine",
+        "safetyWarning": "Do not skip this step"
+      },
+      {
+        "number": 2,
+        "title": "Locate Access Panel",
+        "action": "Find the circular access panel on the lower front right of the machine",
+        "visualCues": "Small rectangular or square panel near the floor"
+      },
+      {
+        "number": 3,
+        "title": "Open Access Panel",
+        "action": "Pry open the panel using a flathead or press the clips",
+        "visualCues": "Panel hinges or comes away completely"
+      },
+      {
+        "number": 4,
+        "title": "Drain Residual Water",
+        "action": "Place tray under filter — pull the small rubber drain hose and uncap it",
+        "visualCues": "Small black or grey hose tucked next to the filter cap",
+        "commonMistakes": ["Unscrewing filter before draining — floods the floor"]
+      },
+      {
+        "number": 5,
+        "title": "Remove Filter",
+        "action": "Turn filter cap counterclockwise and pull out",
+        "visualCues": "Counter-clockwise to loosen — may be stiff on first removal"
+      },
+      {
+        "number": 6,
+        "title": "Clean Filter",
+        "action": "Remove debris, rinse under hot water, check rubber seal",
+        "visualCues": "Look for coins, hair, small garments — common blockages",
+        "commonMistakes": ["Reinstalling without replacing damaged O-ring — causes leaks"]
+      },
+      {
+        "number": 7,
+        "title": "Reinstall and Test",
+        "action": "Screw filter back in hand-tight, recap drain hose, close panel",
+        "safetyWarning": "Do not overtighten filter — thread is plastic",
+        "commonMistakes": ["Forgetting to recap the drain hose before running a cycle"]
+      }
+    ]
+  },
+  {
+    "id": "hvac-ac-contactor-replacement",
+    "name": "AC Contactor Replacement",
+    "domain": "hvac",
+    "difficulty": "intermediate",
+    "estimatedTime": "30–45 minutes",
+    "tools": ["multimeter", "insulated screwdrivers (flathead + Phillips)", "needle-nose pliers", "voltage tester", "replacement contactor (match amp rating)"],
+    "safetyWarnings": [
+      "Turn off the breaker AND verify with a multimeter before opening the unit",
+      "Capacitors hold dangerous charge — discharge with insulated resistor before touching",
+      "Only a licensed technician may handle refrigerant — do not open refrigerant lines",
+      "Wear rubber-soled shoes when working near the outdoor unit"
+    ],
+    "steps": [
+      {
+        "number": 1,
+        "title": "Kill Power",
+        "action": "Turn off the AC breaker in your electrical panel",
+        "visualCues": "Usually a double-pole 30–60A breaker labelled AC or HVAC"
+      },
+      {
+        "number": 2,
+        "title": "Disconnect Service Disconnect",
+        "action": "Pull out or flip the outdoor service disconnect near the unit",
+        "visualCues": "Metal box on the wall next to the outdoor condenser"
+      },
+      {
+        "number": 3,
+        "title": "Verify No Voltage",
+        "action": "Open the service panel on the condenser and test for voltage with multimeter",
+        "visualCues": "Probe the two large line-voltage wires — reading must be 0V",
+        "safetyWarning": "Do not proceed if you see any voltage reading"
+      },
+      {
+        "number": 4,
+        "title": "Discharge Capacitor",
+        "action": "Discharge the run capacitor using an insulated 10kΩ resistor across each pair of terminals",
+        "visualCues": "Capacitor is the silver or black cylinder with wires on top",
+        "safetyWarning": "Never short the capacitor directly — can cause serious burns"
+      },
+      {
+        "number": 5,
+        "title": "Photograph Wiring",
+        "action": "Take a clear photo of the contactor wiring before disconnecting anything",
+        "commonMistakes": ["Skipping the photo and being unable to reconnect correctly"]
+      },
+      {
+        "number": 6,
+        "title": "Remove Old Contactor",
+        "action": "Unscrew the two line-voltage wires from the top terminals and the low-voltage wires from the coil",
+        "visualCues": "Line voltage (thick wires) at top, 24V coil wires (thin, usually red/yellow) at the side"
+      },
+      {
+        "number": 7,
+        "title": "Mount New Contactor",
+        "action": "Screw new contactor into the same mounting position",
+        "commonMistakes": ["Buying wrong amp rating — must match old unit (20A, 30A, or 40A)"]
+      },
+      {
+        "number": 8,
+        "title": "Reconnect Wires",
+        "action": "Reconnect wires using your photo as reference — line voltage to top, coil to side",
+        "safetyWarning": "Ensure no bare wire is exposed outside its terminal"
+      },
+      {
+        "number": 9,
+        "title": "Test",
+        "action": "Replace service panel cover, restore power, set thermostat to cooling",
+        "visualCues": "You should hear the contactor click and the compressor start within 5 minutes"
+      }
+    ]
+  },
+  {
+    "id": "auto-spark-plugs-mazda-cx9",
+    "name": "Spark Plug Replacement — Mazda CX-9",
+    "domain": "auto",
+    "difficulty": "intermediate",
+    "estimatedTime": "45–90 minutes",
+    "tools": [
+      "8mm socket",
+      "10mm socket",
+      "14mm spark plug socket (thin wall)",
+      "spark plug gap tool",
+      "torque wrench",
+      "ratchet with extensions (short and long)",
+      "swivel joint",
+      "magnetic pickup tool",
+      "dielectric grease",
+      "anti-seize compound",
+      "compressed air or shop vacuum"
+    ],
+    "safetyWarnings": [
+      "Engine must be cool before starting — hot engine can damage threads",
+      "Disconnect battery to prevent accidental engine cranking",
+      "Do not drop tools or debris into spark plug holes — can damage cylinders",
+      "Always torque spark plugs to spec — overtightening strips threads, undertightening causes blowout"
+    ],
+    "steps": [
+      {
+        "number": 1,
+        "title": "Safety Preparation",
+        "action": "Ensure engine is cool (sitting for at least 2 hours), disconnect negative battery terminal",
+        "visualCues": "Black cable with minus symbol near battery — 10mm nut",
+        "safetyWarning": "Prevents accidental cranking and electrical shorts"
+      },
+      {
+        "number": 2,
+        "title": "Access Engine Cover",
+        "action": "Remove plastic engine cover if equipped",
+        "visualCues": "Four plastic clips or two 10mm bolts on top of engine cover — lift straight up"
+      },
+      {
+        "number": 3,
+        "title": "Locate Front Bank Ignition Coils",
+        "action": "Identify the three ignition coils on the front bank (closest to radiator)",
+        "visualCues": "Three black plastic rectangles with wiring connectors on top, sitting on valve cover"
+      },
+      {
+        "number": 4,
+        "title": "Remove Front Coil Connectors",
+        "action": "Unplug the wiring connectors from the front three coils",
+        "visualCues": "Press the release tab and pull connector straight up — do not pull on wires"
+      },
+      {
+        "number": 5,
+        "title": "Remove Front Coils",
+        "action": "Remove the 8mm bolt holding each coil, then pull the coil straight up",
+        "visualCues": "Small bolt on side of each coil — coil slides into spark plug tube",
+        "commonMistakes": ["Twisting or bending the coil — pull straight to avoid breaking the boot"]
+      },
+      {
+        "number": 6,
+        "title": "Clean Spark Plug Wells (Front)",
+        "action": "Blow out any debris from the spark plug wells using compressed air or vacuum",
+        "visualCues": "Ensure no dirt falls into the cylinder when removing plugs",
+        "safetyWarning": "Debris in combustion chamber can cause engine damage"
+      },
+      {
+        "number": 7,
+        "title": "Remove Front Spark Plugs",
+        "action": "Use 14mm spark plug socket with extension to loosen and remove plugs",
+        "visualCues": "Socket fits over the ceramic insulator — turn counterclockwise",
+        "commonMistakes": ["Using a standard socket — spark plug sockets have rubber insert to grip plug"]
+      },
+      {
+        "number": 8,
+        "title": "Prepare New Plugs (Front)",
+        "action": "Check gap on new plugs, apply thin coat of anti-seize to threads",
+        "visualCues": "Gap should be 1.0–1.1mm for CX-9 — use feeler gauge or gap tool",
+        "commonMistakes": ["Getting anti-seize on the electrode — causes misfire"]
+      },
+      {
+        "number": 9,
+        "title": "Install Front Spark Plugs",
+        "action": "Thread new plugs by hand first, then torque to 18 Nm (13 lb-ft)",
+        "visualCues": "Finger-tight until seated, then use torque wrench — do not overtighten",
+        "torqueSpec": "18 Nm (13 lb-ft) — do not exceed 20 Nm",
+        "safetyWarning": "Overtightening strips aluminum threads in cylinder head"
+      },
+      {
+        "number": 10,
+        "title": "Reinstall Front Coils",
+        "action": "Apply dielectric grease to coil boots, push coils onto plugs, reinstall 8mm bolts",
+        "visualCues": "Small amount of grease on the rubber boot — ensures good connection and prevents arcing"
+      },
+      {
+        "number": 11,
+        "title": "Access Rear Bank",
+        "action": "Remove any intake plumbing blocking access to rear bank",
+        "visualCues": "May need to remove intake snorkel, PCV hose, or other components — photo connections first"
+      },
+      {
+        "number": 12,
+        "title": "Locate Rear Bank Ignition Coils",
+        "action": "Identify the three ignition coils on the rear bank (closest to firewall)",
+        "visualCues": "Tucked behind intake manifold — tighter space, may need swivel joint on ratchet"
+      },
+      {
+        "number": 13,
+        "title": "Remove Rear Coil Connectors",
+        "action": "Unplug wiring connectors from rear three coils",
+        "visualCues": "Same release tab as front — reach carefully, use extension if needed for leverage"
+      },
+      {
+        "number": 14,
+        "title": "Remove Rear Coils",
+        "action": "Remove 8mm bolts and pull coils straight up",
+        "visualCues": "More limited space — use magnetic pickup tool if bolts are dropped",
+        "commonMistakes": ["Dropping bolts into engine bay — use magnetic tray or tape socket"]
+      },
+      {
+        "number": 15,
+        "title": "Clean Spark Plug Wells (Rear)",
+        "action": "Blow out debris from rear wells before removing plugs",
+        "visualCues": "Compressed air or vacuum — debris more likely to accumulate in rear"
+      },
+      {
+        "number": 16,
+        "title": "Remove Rear Spark Plugs",
+        "action": "Use 14mm socket with long extension and swivel joint",
+        "visualCues": "Swivel joint helps with angle — be gentle to avoid breaking ceramic",
+        "commonMistakes": ["Forcing socket at wrong angle — can crack plug insulator"]
+      },
+      {
+        "number": 17,
+        "title": "Install Rear Spark Plugs",
+        "action": "Thread by hand, then torque to 18 Nm",
+        "visualCues": "Same process as front — start by hand to avoid cross-threading",
+        "torqueSpec": "18 Nm (13 lb-ft)",
+        "safetyWarning": "Cross-threading in aluminum head is expensive to repair"
+      },
+      {
+        "number": 18,
+        "title": "Reinstall Rear Coils",
+        "action": "Apply dielectric grease, push coils onto plugs, reinstall bolts",
+        "visualCues": "Ensure coils seat fully onto plug before tightening bolt"
+      },
+      {
+        "number": 19,
+        "title": "Reconnect All Coil Connectors",
+        "action": "Reconnect all six coil wiring connectors — front and rear",
+        "visualCues": "Should click firmly into place — tug gently to confirm"
+      },
+      {
+        "number": 20,
+        "title": "Reinstall Engine Cover and Intake",
+        "action": "Replace any removed intake components and engine cover",
+        "visualCues": "Ensure all hoses and connectors are reattached"
+      },
+      {
+        "number": 21,
+        "title": "Reconnect Battery",
+        "action": "Reconnect negative battery terminal, tighten 10mm nut",
+        "visualCues": "Terminal should be snug — do not overtighten"
+      },
+      {
+        "number": 22,
+        "title": "Test Engine",
+        "action": "Start engine and verify smooth idle",
+        "visualCues": "Listen for misfires or rough idle — check engine light should stay off",
+        "safetyWarning": "If check engine light flashes, shut off immediately — indicates misfire"
+      }
+    ]
+  },
+  {
+    "id": "electronics-smartphone-screen-replacement",
+    "name": "Smartphone Cracked Screen Replacement",
+    "domain": "electronics",
+    "difficulty": "intermediate",
+    "estimatedTime": "60–90 minutes",
+    "tools": [
+      "precision screwdriver set (pentalobe, Phillips, tri-point)",
+      "suction cup",
+      "plastic opening tools / spudgers",
+      "tweezers",
+      "heat gun or hairdryer",
+      "replacement screen assembly",
+      "adhesive strips or glue",
+      "magnetic screw organizer",
+      "ESD wrist strap",
+      "SIM eject tool"
+    ],
+    "safetyWarnings": [
+      "Always disconnect the battery first — live circuits can short during repair",
+      "Lithium batteries can catch fire if punctured — handle with extreme care",
+      "Broken glass can cut — wear cut-resistant gloves and eye protection",
+      "Do not overheat — keep heat gun/hairdryer under 80°C to avoid damaging components",
+      "Work in a low-static environment — ESD can destroy sensitive chips",
+      "Document screw locations — mixing them up can damage the logic board"
+    ],
+    "steps": [
+      {
+        "number": 1,
+        "title": "Power Off and Prepare",
+        "action": "Power off the device completely and remove SIM tray",
+        "visualCues": "Use SIM eject tool to pop out tray from side — keep SIM card safe",
+        "safetyWarning": "Device must be fully powered down before opening"
+      },
+      {
+        "number": 2,
+        "title": "Heat the Screen Edges",
+        "action": "Apply heat around the screen perimeter to soften adhesive",
+        "visualCues": "Heat gun at 60–80°C or hairdryer on high — move in circular motion for 2–3 minutes",
+        "safetyWarning": "Do not focus heat on one spot — can damage OLED panel or battery",
+        "commonMistakes": ["Overheating — causes display discoloration or battery damage"]
+      },
+      {
+        "number": 3,
+        "title": "Attach Suction Cup",
+        "action": "Place suction cup near bottom edge of screen",
+        "visualCues": "Press firmly to create vacuum seal — avoid cracked areas that may shatter",
+        "commonMistakes": ["Placing over deep cracks — suction won't hold and can worsen damage"]
+      },
+      {
+        "number": 4,
+        "title": "Create Initial Gap",
+        "action": "Pull suction cup gently while inserting prying tool at seam",
+        "visualCues": "Screen should lift slightly — insert plastic pick or spudger into the gap",
+        "commonMistakes": ["Using metal tools — will scratch or dent frame", "Prying against internal components"]
+      },
+      {
+        "number": 5,
+        "title": "Separate Adhesive",
+        "action": "Slide opening tool around perimeter to cut adhesive",
+        "visualCues": "Keep tool at shallow angle — slide slowly along edges, reheating if resistance is felt",
+        "safetyWarning": "Cables at top — do not insert tool more than 3mm near top edge",
+        "commonMistakes": ["Cutting flex cables — stop near top where display and digitizer cables are"]
+      },
+      {
+        "number": 6,
+        "title": "Open Like Book",
+        "action": "Lift screen from bottom like a book hinge at top",
+        "visualCues": "Screen should pivot on top edge — display cables connect there",
+        "safetyWarning": "Do not fully detach yet — flex cables still connected at top"
+      },
+      {
+        "number": 7,
+        "title": "Remove Battery Connector Cover",
+        "action": "Locate and remove metal bracket covering battery connector",
+        "visualCues": "Small metal plate held by tiny screws — usually near bottom of opened screen",
+        "commonMistakes": ["Skipping this step — working on live circuit risks shorts"]
+      },
+      {
+        "number": 8,
+        "title": "Disconnect Battery",
+        "action": "Use spudger to lift battery connector straight up off board",
+        "visualCues": "Connector pops straight up — do not pry against nearby components",
+        "safetyWarning": "CRITICAL: This must be done before touching any other connectors — prevents shorts",
+        "commonMistakes": ["Lifting at angle — can bend connector pins"]
+      },
+      {
+        "number": 9,
+        "title": "Disconnect Screen Cables",
+        "action": "Disconnect display and digitizer flex cables from logic board",
+        "visualCues": "Usually 2–3 connectors at top — use spudger to lift retaining brackets first",
+        "commonMistakes": ["Forgetting to flip up retaining brackets — forcing connectors damages pins"]
+      },
+      {
+        "number": 10,
+        "title": "Remove Old Screen",
+        "action": "Detach screen assembly completely and set aside",
+        "visualCues": "Screen is now free — place cracked screen face-down on padded surface",
+        "safetyWarning": "Handle cracked glass carefully — sharp edges can cut",
+        "commonMistakes": ["Forgetting to transfer components like earpiece speaker, front camera, or home button to new screen"]
+      },
+      {
+        "number": 11,
+        "title": "Transfer Components (if needed)",
+        "action": "Remove and transfer earpiece speaker, front camera, sensors, and home button to new screen",
+        "visualCues": "Small screws hold brackets — use tweezers for tiny flex cables",
+        "commonMistakes": ["Losing tiny screws — use magnetic organizer", "Tearing delicate flex cables — work slowly"]
+      },
+      {
+        "number": 12,
+        "title": "Prepare New Screen",
+        "action": "Remove protective film and check new screen for damage",
+        "visualCues": "Inspect for cracks, dead pixels, or digitizer issues before installation"
+      },
+      {
+        "number": 13,
+        "title": "Apply New Adhesive",
+        "action": "Apply fresh adhesive strips around screen frame perimeter",
+        "visualCues": "Peel backing from adhesive strips — align carefully with frame edges",
+        "commonMistakes": ["Using old adhesive — won't seal properly", "Adhesive blocking connectors or screw holes"]
+      },
+      {
+        "number": 14,
+        "title": "Connect New Screen Cables",
+        "action": "Attach display and digitizer flex cables to logic board",
+        "visualCues": "Align connectors carefully — press down until they snap into place, then flip down retaining brackets"
+      },
+      {
+        "number": 15,
+        "title": "Reconnect Battery",
+        "action": "Reconnect battery flex cable to logic board",
+        "visualCues": "Press connector straight down — should click into place",
+        "safetyWarning": "Ensure connector is fully seated before reinstalling bracket"
+      },
+      {
+        "number": 16,
+        "title": "Install Battery Bracket",
+        "action": "Reinstall metal cover over battery connector",
+        "visualCues": "Align screw holes — install screws in same positions (may be different sizes)"
+      },
+      {
+        "number": 17,
+        "title": "Test Before Sealing",
+        "action": "Power on device to verify screen functions correctly",
+        "visualCues": "Check touch response, display quality, brightness, front camera, earpiece speaker",
+        "commonMistakes": ["Sealing before testing — if defective, must reopen"]
+      },
+      {
+        "number": 18,
+        "title": "Seal Screen Assembly",
+        "action": "Press screen firmly into frame to set adhesive",
+        "visualCues": "Apply even pressure around perimeter — hold for 30 seconds, then place heavy book on top for 30 minutes",
+        "safetyWarning": "Do not apply pressure to center of screen — can crack display"
+      },
+      {
+        "number": 19,
+        "title": "Reinstall Screws",
+        "action": "Replace bottom pentalobe or screws holding screen",
+        "visualCues": "Insert SIM tray first, then install screws at bottom or around frame"
+      },
+      {
+        "number": 20,
+        "title": "Final Testing",
+        "action": "Verify all functions work correctly",
+        "visualCues": "Test: touch sensitivity, display brightness/colors, Face ID/Touch ID, front camera, earpiece, proximity sensor, auto-rotate",
+        "commonMistakes": ["Not testing all features — some sensors may not reconnect properly"]
+      }
+    ]
+  }
+]

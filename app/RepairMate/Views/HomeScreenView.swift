@@ -16,10 +16,30 @@
 import MWDATCore
 import SwiftUI
 
+private let sheetDismissalDelay: TimeInterval = 0.5
+private let brandTeal = Color(red: 0.0, green: 0.76, blue: 0.88)
+
 struct HomeScreenView: View {
   @ObservedObject var viewModel: WearablesViewModel
+  // Domain/procedure plumbing – supplied by StreamSessionView so
+  // "Start on iPhone" goes through the same selector flow as NonStreamView.
+  @Binding var selectedDomain: RepairDomain?
+  var repairManager: RepairMateSessionManager
+  var onDomainSelected: ((RepairDomain) -> Void)?
+  var onProcedureComplete: ((RepairDomain, RepairProcedure?) -> Void)?
+  /// Called after domain+procedure are selected to actually start the iPhone session.
+  var onStartIPhone: (() -> Void)?
+
   @State private var contentOpacity: Double = 0
   @State private var imageScale: CGFloat = 0.8
+  @State private var showDeveloperConfig = false
+  @State private var showTranscripts = false
+  @State private var showIPhoneWarning = false
+  @State private var showDomainSelector = false
+  @State private var showProcedureSelector = false
+  @State private var isProcessingAction = false
+  @State private var isDomainSelectedProgrammatically = false
+  @State private var isProcedureDismissedProgrammatically = false
 
   var body: some View {
     ZStack {
@@ -43,10 +63,42 @@ struct HomeScreenView: View {
       .edgesIgnoringSafeArea(.all)
 
       VStack(spacing: 0) {
+        // Header with settings menu
+        HStack {
+          Spacer()
+          Menu {
+            Button {
+              showDeveloperConfig = true
+            } label: {
+              Label("Dev Settings", systemImage: "gear")
+            }
+
+            Button {
+              showTranscripts = true
+            } label: {
+              Label("Transcripts", systemImage: "text.bubble")
+            }
+          } label: {
+            ZStack {
+              Circle()
+                .fill(brandTeal.opacity(0.25))
+                .frame(width: 44, height: 44)
+
+              Image(systemName: "gearshape")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .foregroundColor(.white)
+                .frame(width: 22, height: 22)
+            }
+          }
+        }
+        .padding(.horizontal, 20)
+        .padding(.top, 16)
+
         Spacer()
 
         // Bottom action section
-        VStack(spacing: 20) {
+        VStack(spacing: 12) {
           Text("You'll be redirected to the Meta AI app\nto confirm your connection.")
             .font(.system(size: 14, weight: .medium))
             .foregroundColor(.white.opacity(0.8))
@@ -62,6 +114,19 @@ struct HomeScreenView: View {
             Task { await viewModel.connectGlasses() }
           }
           .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 4)
+
+          // iPhone streaming – available even without glasses, opens domain selector first
+          if onStartIPhone != nil {
+            CustomButton(
+              title: "Stream on iPhone",
+              style: .secondary,
+              isDisabled: isProcessingAction
+            ) {
+              guard !isProcessingAction else { return }
+              showIPhoneWarning = true
+            }
+            .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 4)
+          }
 
           #if targetEnvironment(simulator)
           Text("SIMULATOR PREVIEW")
@@ -84,6 +149,89 @@ struct HomeScreenView: View {
         .opacity(contentOpacity)
       }
     }
+    // Developer config sheet
+    .sheet(isPresented: $showDeveloperConfig) {
+      DeveloperConfigView()
+    }
+    // Saved transcripts sheet
+    .sheet(isPresented: $showTranscripts) {
+      SavedTranscriptsView()
+    }
+    // Safety warning before iPhone streaming
+    .alert("Use with Caution", isPresented: $showIPhoneWarning) {
+      Button("Continue", role: .destructive) {
+        isProcessingAction = true
+        showDomainSelector = true
+      }
+      Button("Cancel", role: .cancel) {}
+    } message: {
+      Text("Streaming on iPhone works best when your phone is secured in a mount or stand. Holding or balancing your device while doing hands-free repair is unsafe.")
+    }
+    // Domain selector sheet
+    .sheet(isPresented: $showDomainSelector) {
+      NavigationView {
+
+        DomainSelectorView(
+          selectedDomain: $selectedDomain,
+          onDomainSelected: { domain in
+            onDomainSelected?(domain)
+            isDomainSelectedProgrammatically = true
+            showDomainSelector = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + sheetDismissalDelay) {
+              showProcedureSelector = true
+            }
+          }
+        )
+        .padding()
+        .navigationTitle("RepairMate")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+          ToolbarItem(placement: .navigationBarTrailing) {
+            Button("Done") {
+              showDomainSelector = false
+              cancelAction()
+            }
+          }
+        }
+      }
+      .presentationDetents([.medium])
+    }
+    // Procedure selector sheet
+    .sheet(isPresented: $showProcedureSelector) {
+      ProcedureSelectorView(
+        sessionManager: repairManager,
+        onProcedureSelected: { procedure in
+          isProcedureDismissedProgrammatically = true
+          showProcedureSelector = false
+          if let domain = selectedDomain {
+            onProcedureComplete?(domain, procedure)
+          }
+          DispatchQueue.main.asyncAfter(deadline: .now() + sheetDismissalDelay) {
+            onStartIPhone?()
+            isProcessingAction = false
+          }
+        }
+      )
+      .presentationDetents([.large])
+    }
+    .onChange(of: showDomainSelector) { isPresented in
+      if !isPresented {
+        if isDomainSelectedProgrammatically {
+          isDomainSelectedProgrammatically = false
+        } else {
+          cancelAction()
+        }
+      }
+    }
+    .onChange(of: showProcedureSelector) { isPresented in
+      if !isPresented {
+        if isProcedureDismissedProgrammatically {
+          isProcedureDismissedProgrammatically = false
+        } else {
+          cancelAction()
+        }
+      }
+    }
     .onAppear {
       withAnimation(.easeOut(duration: 0.6).delay(0.1)) {
         contentOpacity = 1.0
@@ -94,7 +242,11 @@ struct HomeScreenView: View {
     }
   }
 
+  private func cancelAction() {
+    isProcessingAction = false
+  }
 }
+
 
 struct HomeTipItemView: View {
   let resource: ImageResource

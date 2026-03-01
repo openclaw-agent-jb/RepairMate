@@ -21,12 +21,14 @@ struct CustomButton: View {
   let action: () -> Void
 
   enum ButtonStyle {
-    case primary, destructive
+    case primary, secondary, destructive
 
     var backgroundColor: Color {
       switch self {
       case .primary:
         return .appPrimary
+      case .secondary:
+        return Color(white: 0.30)
       case .destructive:
         return .destructiveBackground
       }
@@ -34,7 +36,7 @@ struct CustomButton: View {
 
     var foregroundColor: Color {
       switch self {
-      case .primary:
+      case .primary, .secondary:
         return .white
       case .destructive:
         return .destructiveForeground
@@ -54,7 +56,7 @@ struct CustomButton: View {
           startPoint: .topLeading,
           endPoint: .bottomTrailing
         )
-      case .destructive:
+      case .secondary, .destructive:
         return nil
       }
     }

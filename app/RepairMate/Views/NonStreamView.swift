@@ -44,6 +44,7 @@ struct NonStreamView: View {
   @State private var contentOpacity: Double = 0
   @State private var imageScale: CGFloat = 0.8
   @State private var showTranscripts = false
+  @State private var showIPhoneWarning = false
 
   var body: some View {
     ZStack {
@@ -149,7 +150,7 @@ struct NonStreamView: View {
               .animation(.easeInOut(duration: 0.3), value: viewModel.connectedDeviceName)
 
             Text(viewModel.hasActiveDevice
-                 ? "Ready to stream.\nTap 'Start Streaming' to begin."
+                 ? "Ready to stream.\nTap 'Stream on Glasses' to begin."
                  : "Stream live video from your AI Glasses or\n use your iPhone camera to get started.")
               .font(.system(size: 16, weight: .medium))
               .multilineTextAlignment(.center)
@@ -178,20 +179,20 @@ struct NonStreamView: View {
         // Action buttons
         VStack(spacing: 12) {
           CustomButton(
-            title: "Start on iPhone",
-            style: .primary,
-            isDisabled: isProcessingAction
+            title: "Stream on Glasses",
+            style: viewModel.hasActiveDevice ? .primary : .secondary,
+            isDisabled: !viewModel.hasActiveDevice || isProcessingAction
           ) {
-            handleStreamAction(.iphone)
+            handleStreamAction(.glasses)
           }
           .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 4)
 
           CustomButton(
-            title: "Start Streaming",
-            style: .primary,
-            isDisabled: !viewModel.hasActiveDevice || isProcessingAction
+            title: "Stream on iPhone",
+            style: viewModel.hasActiveDevice ? .secondary : .primary,
+            isDisabled: isProcessingAction
           ) {
-            handleStreamAction(.glasses)
+            showIPhoneWarning = true
           }
           .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 4)
         }
@@ -279,6 +280,15 @@ struct NonStreamView: View {
       }
     }
     .toast(message: $toastMessage)
+    // Safety warning before iPhone streaming
+    .alert("Use with Caution", isPresented: $showIPhoneWarning) {
+      Button("Continue", role: .destructive) {
+        handleStreamAction(.iphone)
+      }
+      Button("Cancel", role: .cancel) {}
+    } message: {
+      Text("Streaming on iPhone works best when your phone is secured in a mount or stand. Holding or balancing your device while doing hands-free repair is unsafe.")
+    }
     .onAppear {
       withAnimation(.easeOut(duration: 0.6).delay(0.1)) {
         contentOpacity = 1.0

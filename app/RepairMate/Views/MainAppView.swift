@@ -27,20 +27,8 @@ struct MainAppView: View {
   }
 
   var body: some View {
-    #if targetEnvironment(simulator)
-    if viewModel.registrationState == .registered || viewModel.simulatorBypassActive {
-      StreamSessionView(wearables: wearables, wearablesVM: viewModel)
-    } else {
-      // User not registered - show registration/onboarding flow
-      HomeScreenView(viewModel: viewModel)
-    }
-    #else
-    if viewModel.registrationState == .registered {
-      StreamSessionView(wearables: wearables, wearablesVM: viewModel)
-    } else {
-      // User not registered - show registration/onboarding flow
-      HomeScreenView(viewModel: viewModel)
-    }
-    #endif
+    // StreamSessionView owns the full streaming stack (StreamSessionViewModel, GeminiVM, etc.)
+    // and handles routing between HomeScreenView (unregistered) and NonStreamView (registered).
+    StreamSessionView(wearables: wearables, wearablesVM: viewModel)
   }
 }

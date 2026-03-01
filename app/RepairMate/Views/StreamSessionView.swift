@@ -34,28 +34,7 @@ struct StreamSessionView: View {
         // Full-screen video view with streaming controls
         StreamView(viewModel: viewModel, wearablesVM: wearablesViewModel, geminiVM: geminiVM, selectedDomain: selectedDomain, procedureName: repairManager.currentProcedure?.name)
       } else {
-        // Pre-streaming setup view with permissions and start button
-        NonStreamView(
-          viewModel: viewModel,
-          wearablesVM: wearablesViewModel,
-          repairManager: repairManager,
-          selectedDomain: $selectedDomain,
-          onDomainSelected: { domain in
-            // Handle initial domain selection to start fetching domains
-            repairManager.startSession(domain: domain)
-            // Also update geminiVM.repairDomain so the new domain is used when streaming starts
-            geminiVM.repairDomain = domain
-          },
-          onProcedureComplete: { domain, procedure in
-            // When user finishes selecting a procedure, truly assign it
-            geminiVM.repairDomain = domain
-            geminiVM.currentProcedureName = procedure?.name
-            if let proc = procedure {
-              // re-start session with the procedure now that it is selected
-              repairManager.startSession(domain: domain, procedure: proc)
-            }
-          }
-        )
+        registeredContent
       }
     }
     .alert("Error", isPresented: $viewModel.showError) {
@@ -77,6 +56,57 @@ struct StreamSessionView: View {
       if !isStreaming {
         geminiVM.stopSafetyAnalysis()
       }
+    }
+  }
+
+  /// Shows HomeScreenView for unregistered users (with iPhone-start wired up)
+  /// or NonStreamView for registered users. Keeps the streaming stack alive in both cases.
+  @ViewBuilder
+  private var registeredContent: some View {
+    #if targetEnvironment(simulator)
+    let isRegistered = wearablesViewModel.registrationState == .registered || wearablesViewModel.simulatorBypassActive
+    #else
+    let isRegistered = wearablesViewModel.registrationState == .registered
+    #endif
+
+    if isRegistered {
+      NonStreamView(
+        viewModel: viewModel,
+        wearablesVM: wearablesViewModel,
+        repairManager: repairManager,
+        selectedDomain: $selectedDomain,
+        onDomainSelected: { domain in
+          repairManager.startSession(domain: domain)
+          geminiVM.repairDomain = domain
+        },
+        onProcedureComplete: { domain, procedure in
+          geminiVM.repairDomain = domain
+          geminiVM.currentProcedureName = procedure?.name
+          if let proc = procedure {
+            repairManager.startSession(domain: domain, procedure: proc)
+          }
+        }
+      )
+    } else {
+      HomeScreenView(
+        viewModel: wearablesViewModel,
+        selectedDomain: $selectedDomain,
+        repairManager: repairManager,
+        onDomainSelected: { domain in
+          repairManager.startSession(domain: domain)
+          geminiVM.repairDomain = domain
+        },
+        onProcedureComplete: { domain, procedure in
+          geminiVM.repairDomain = domain
+          geminiVM.currentProcedureName = procedure?.name
+          if let proc = procedure {
+            repairManager.startSession(domain: domain, procedure: proc)
+          }
+        },
+        onStartIPhone: {
+          Task { await viewModel.handleStartIPhone() }
+        }
+      )
     }
   }
 }

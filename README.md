@@ -12,6 +12,10 @@ RepairMate is an iOS app that provides real-time, voice-guided repair instructio
 
 **The Solution:** RepairMate streams your camera feed to Gemini Live, which analyzes what you're seeing and provides voice-guided instructions through your headphones. The app includes pre-loaded repair procedures with tools, safety warnings, and visual cues, creating a hands-free repair assistant.
 
+> **No Meta AI Glasses?** RepairMate also supports your iPhone camera as a fallback. Tap **"Stream on iPhone"** on the home or connected screen to start a session without glasses — you still get full Gemini Live voice guidance.
+>
+> ⚠️ **Use with caution during hands-free repair.** Always secure your phone with a mount or stand before starting a repair session. Holding or balancing your iPhone while working on equipment is unsafe.
+
 ### Sample Interaction
 
 > **User:** _"I'm replacing the alternator"_
@@ -145,8 +149,11 @@ See `backend/README.md` for complete Firebase setup instructions.
 ### 3. Configure API Keys
 
 1. Copy the template and create your own config:
-   ```bash
+
    cp app/Config.xcconfig.template app/Config.xcconfig
+
+   ```
+
    ```
 
 2. Edit `app/Config.xcconfig` with your actual credentials:
@@ -162,13 +169,14 @@ See `backend/README.md` for complete Firebase setup instructions.
 
 ## Key Features
 
-| Feature                  | Description                                                    |
-| ------------------------ | -------------------------------------------------------------- |
-| **Bidirectional Stream** | Audio + video streaming to Gemini Live                         |
-| **Voice Commands**       | Interruptible queries (_"What am I looking at?"_)              |
-| **Procedure Library**    | Pre-loaded repair guides with tools, steps, safety info        |
-| **Safety Check**         | Frame analysis every 5 seconds for hazard detection            |
-| **Visual Cues**          | Descriptions of what to look for (_"Black cable, minus sign"_) |
+| Feature                  | Description                                                                                                              |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| **Bidirectional Stream** | Audio + video streaming to Gemini Live                                                                                   |
+| **Voice Commands**       | Interruptible queries (_"What am I looking at?"_)                                                                        |
+| **Procedure Library**    | Pre-loaded repair guides with tools, steps, safety info                                                                  |
+| **Safety Check**         | Frame analysis every 5 seconds for hazard detection                                                                      |
+| **Visual Cues**          | Descriptions of what to look for (_"Black cable, minus sign"_)                                                           |
+| **iPhone Camera Mode**   | Use your iPhone as a camera fallback if Meta AI Glasses are not available — mount your phone securely for hands-free use |
 
 ---
 
@@ -205,8 +213,6 @@ xcodebuild test -project RepairMate.xcodeproj -scheme RepairMate -destination 'p
 ---
 
 ## License
-
-This project was created for the Gemini Live Agent Challenge.
 
 See the [LICENSE.md](LICENSE.md) file for licensing details.
 

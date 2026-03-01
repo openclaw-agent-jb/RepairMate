@@ -71,24 +71,31 @@ RepairMate/
 High-level data flow:
 
 ```
-┌─────────────────┐      RTMP       ┌─────────┐     WebSocket    ┌──────────┐
-│   Camera Feed   │ ───────────────→│ iOS App │ ────────────────→│ OpenClaw │
-│ (iPhone Camera)│                 │         │                  │ (Bridge) │
-└─────────────────┘                 └─────────┘                  └────┬─────┘
-                                                                    │
-                                                                    │ (HTTPS)
-                                                                    ↓
-┌─────────────┐                                             ┌──────────────┐
-│  Audio Out   │ ←────────────────────────────────────────── │  Vertex AI   │
-│ (Headphones) │         Gemini Live API (bidi stream)       │ Gemini Live  │
-└─────────────┘                                             └──────┬───────┘
-                                                                   │
-                                    ┌──────────────┬───────────────┴────────┐
-                                    ↓              ↓                      ↓
-                             ┌────────────┐  ┌──────────┐         ┌──────────┐
-                             │ Firestore  │  │  Vision  │         │   RAG    │
-                             │(Procedures)│  │   OCR    │         │ (Vector) │
-                             └────────────┘  └──────────┘         └──────────┘
+┌──────────────────────┐              ┌───────────────────────────────────────────┐
+│      Camera Feed     │              │              iOS App                      │
+│  Ray-Ban Meta Glasses│──DAT SDK ──→ │                                           │
+│    or iPhone Camera  │              │  ┌──────────────────┐  ┌─────────────┐    │
+└──────────────────────┘              │  │ TranscriptStore  │  │  Firestore  │    │
+┌──────────────────────┐              │  └──────────────────┘  └──────┬──────┘    │
+│      Audio Out       │◄─────────────│                               │ read      │
+│  Glasses Speaker or  │              └──────────────┬────────────────┘           │
+│  iPhone Headphones   │                             │                            │
+└──────────────────────┘                             │ WSS bidi stream            │
+                                                     │ (audio + frames)           │
+                                                     ↓                            │
+                                        ┌────────────────────┐                    │
+                                        │   Gemini Live API  │                    │
+                                        │  (generativelang.  │                    │
+                                        │   googleapis.com)  │                    │
+                                        └─────────┬──────────┘                    │
+                                                  │ Tool call                     │
+                                                  ↓                               │
+                                        ┌─────────────────┐                       │
+                                        │ iOS App proxies │──── HTTPS POST ──────→│
+                                        │   tool to:      │                       │
+                                        │ OpenClaw Agent  │◄──── Result ──────────│
+                                        │ (Bearer Auth)   │
+                                        └─────────────────┘
 ```
 
 ### Component Breakdown
@@ -153,10 +160,8 @@ See `backend/README.md` for complete Firebase setup instructions.
 
 1. Copy the template and create your own config:
 
+   ```bash
    cp app/Config.xcconfig.template app/Config.xcconfig
-
-   ```
-
    ```
 
 2. Edit `app/Config.xcconfig` with your actual credentials:
@@ -185,11 +190,12 @@ See `backend/README.md` for complete Firebase setup instructions.
 
 ## Documentation
 
-| Document                                             | Description                      |
-| ---------------------------------------------------- | -------------------------------- |
-| [`app/README.md`](app/README.md)                     | iOS app architecture and setup   |
-| [`backend/README.md`](backend/README.md)             | Firebase setup and import script |
-| [`docs/CHALLENGE_GUIDE.md`](docs/CHALLENGE_GUIDE.md) | Complete technical specification |
+| Document                                             | Description                       |
+| ---------------------------------------------------- | --------------------------------- |
+| [`app/README.md`](app/README.md)                     | iOS app architecture and setup    |
+| [`backend/README.md`](backend/README.md)             | Firebase setup and import script  |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)       | System architecture and data flow |
+| [`docs/CHALLENGE_GUIDE.md`](docs/CHALLENGE_GUIDE.md) | Complete technical specification  |
 
 ---
 

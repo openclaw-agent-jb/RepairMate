@@ -286,9 +286,9 @@ private class MockOpenClawBridge: OpenClawBridge {
   var lastToolName: String?
   var mockResult: ToolResult = .success("Mock result")
   
-  init() {
-    // Don't call super.init() since we're mocking
-    super.init(host: "test", port: 443, gatewayToken: "test")
+  override init() {
+    // Call super.init() but we'll override the delegateTask method
+    super.init()
   }
   
   override func delegateTask(task: String, toolName: String) async -> ToolResult {

@@ -7,6 +7,7 @@
  */
 
 import Combine
+import MWDATCore
 import XCTest
 
 @testable import RepairMate

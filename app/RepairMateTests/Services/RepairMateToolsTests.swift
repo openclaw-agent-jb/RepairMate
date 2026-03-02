@@ -10,6 +10,7 @@ import XCTest
 
 @testable import RepairMate
 
+@MainActor
 final class RepairMateToolsTests: XCTestCase {
 
   // MARK: - Tool Declaration Tests

@@ -24,7 +24,7 @@ final class TranscriptStoreTests: XCTestCase {
     testDirectory = tempDir.appendingPathComponent("TranscriptStoreTests-\(UUID().uuidString)")
 
     // Create a testable instance that uses our temp directory
-    sut = TestableTranscriptStore(directoryURL: testDirectory)
+    sut = TestableTranscriptStore.create(directoryURL: testDirectory)
   }
 
   override func tearDown() {
@@ -294,9 +294,15 @@ private class TestableTranscriptStore: TranscriptStore {
 
   init(directoryURL: URL) {
     self.customDirectory = directoryURL
-    super.init()
+    // Don't call super.init() since it's private - use the shared instance approach
+    // Instead, we'll use a static factory method
+  }
+
+  static func create(directoryURL: URL) -> TestableTranscriptStore {
+    let store = TestableTranscriptStore(directoryURL: directoryURL)
     // Create the directory
-    try? FileManager.default.createDirectory(at: customDirectory, withIntermediateDirectories: true)
+    try? FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true)
+    return store
   }
 
   override var transcriptsDirectory: URL {
